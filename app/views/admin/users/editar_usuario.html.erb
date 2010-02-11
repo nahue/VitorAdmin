@@ -1,0 +1,35 @@
+<% form_for :user, @user, :url => {:action => "update_usuario",:id => @user.id} do |form| %>  
+<%= form.error_messages %>  
+<ol class="formList">  
+  <li>  
+    <%= form.label :username, "Username" %>  
+    <%= form.text_field :username %>  
+  </li>  
+  <li>  
+    <%= form.label :email, "Email" %>  
+    <%= form.text_field :email %>  
+  </li>  
+  <li>  
+    <%= form.label :password, "Password" %>  
+    <%= form.password_field :password %>  
+  </li>  
+  <li>  
+    <%= form.label :password_confirmation, "Password confirmation" %>  
+    <%= form.password_field :password_confirmation %>  
+  </li>  
+  <li>  
+    <%= form.label :grupo, "Grupos" %>  
+    <% for grupo in Grupo.find(:all) %>
+    	<div>
+    		<%= check_box_tag "user[grupo_ids][]", grupo.id, @user.grupos.include?(grupo) %>
+    		<%= grupo.nombre %>
+    	
+    	</div>
+    <% end %>
+      
+  </li>
+  <li>  
+    <%= form.submit "Submit"%>  
+  </li>  
+</ol>  
+<% end %>  

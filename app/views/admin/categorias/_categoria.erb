@@ -1,0 +1,11 @@
+<% form_for @categoria do |f| %>  
+
+<p>
+	<%= f.label :nombre, "Nombre"%>
+	<%= f.text_field :nombre %>
+</p> 
+<p>  
+  <%= f.submit "Guardar" %>  
+</p>  
+
+<% end %>

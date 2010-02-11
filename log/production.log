@@ -1,0 +1,50 @@
+
+
+Processing PrincipalController#index (for 127.0.0.1 at 2010-01-13 22:01:12) [GET]
+Rendering template within layouts/application
+Rendering principal/index
+
+ActionView::TemplateError (Mysql::Error: Table 'vd2_production.users' doesn't exist: SHOW FIELDS FROM `users`) on line #11 of app/views/parciales/_sidebar.html.erb:
+8: 		:action => "index"
+9: 		}
+10: 		%>
+11: 		<% if can? :read, Articulo %>
+12: 			<%=render :partial => "parciales/menu", :locals =>
+13: 			{
+14: 			:controller => "Articulos",
+
+    app/models/ability.rb:5:in `new'
+    app/models/ability.rb:5:in `initialize'
+    (eval):2:in `send'
+    (eval):2:in `can?'
+    app/views/parciales/_sidebar.html.erb:11
+    haml (2.2.17) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/views/layouts/application.html.erb:27
+    haml (2.2.17) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.17) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.17) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    compass (0.8.17) [v] lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+    passenger (2.2.5) lib/phusion_passenger/rack/request_handler.rb:95:in `process_request'
+    passenger (2.2.5) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:378:in `start_request_handler'
+    passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:336:in `handle_spawn_application'
+    passenger (2.2.5) lib/phusion_passenger/utils.rb:183:in `safe_fork'
+    passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+    passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+    passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering rescues/layout (internal_server_error)

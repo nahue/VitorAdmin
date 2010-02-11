@@ -1,0 +1,17 @@
+<%=render :partial => "menu"%>
+
+<% form_for @articulo do |form| %>  
+<ol>
+<li>
+	<%= form.label :titulo, "Titulo"%>
+	<%= form.text_field :titulo %>
+</li>
+<li>  
+  <%= form.label :texto, "Texto" %>  
+  <%= form.text_area :texto, :class => "mceEditor" %>  
+</li> 
+<li>  
+  <%= form.submit "Guardar" %>  
+</li>  
+</ol>
+<% end %>

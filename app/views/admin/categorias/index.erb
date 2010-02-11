@@ -1,0 +1,31 @@
+<div id="x-categorias" class="grilla"></div>
+<script type="text/javascript" charset="utf-8">
+Ext.ns("com.vd.categorias");
+	Ext.onReady(function() {
+		com.vd.categorias.proxy = new Ext.data.HttpProxy({	
+			url: '/admin/categorias' 
+		});
+		com.vd.categorias.campos = new Ext.data.Record.create([
+				{name: 'id'},
+				{name: 'nombre'},
+				{name: 'acciones'}
+				]);
+		com.vd.categorias.reader = new Ext.ux.JsonReader({
+			fields: com.vd.categorias.campos
+			
+		});
+		com.vd.categorias.writer = new Ext.data.JsonWriter();
+		com.vd.categorias.store = new Ext.data.Store({
+				id			: 'categoriasStore',
+				restful	: true,
+				proxy	: com.vd.categorias.proxy,
+				reader	: com.vd.categorias.reader,
+				writer	: com.vd.categorias.writer
+			});
+		com.vd.categorias.store.load();
+		com.vd.categorias.grid = new Ext.ux.PanelCategorias({
+			modeloUrl: "<%= admin_categorias_url %>"	
+		})
+		
+	})
+</script>

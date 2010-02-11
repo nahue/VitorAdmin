@@ -1,0 +1,26 @@
+<%=render :partial => "menu"%>
+
+<table>
+	<tr>
+		<th>Articulo</th>
+		<th>Acciones</th>
+	</tr>
+	<% @articulos.each do |articulo|%>
+	
+	<tr>
+		<td>
+			<div id="articulos" class="titulo"><%=articulo.titulo%></div>
+			<div id="articulos" class="texto"><%=truncate(articulo.texto.gsub(/<\/?[^>]*>/,  ""),:length => 100)%></div>
+		</td>
+		<td id="articulos" class="acciones">
+			<% if can? :destroy, @articulo %>
+				<%=link_to "Eliminar",articulo_path(articulo.id),:confirm => "Esta seguro?",:method => :delete%>
+			<% end%>
+			<% if can? :edit, @articulo%>
+				<%=link_to "Editar", edit_articulo_path(articulo.id),:action => "edit"%>
+			<% end %>
+			
+		</td>
+	</tr>
+	<% end %>
+</table>

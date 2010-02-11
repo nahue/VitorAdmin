@@ -1,0 +1,85 @@
+<!--
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Usuario</th>
+		<th>E-mail</th>
+		<th>Acciones</th>
+	</tr>
+	<% @usuarios.each do |usuario|%>
+	
+	<tr>
+		<td>
+		<%=usuario.id%>
+		</td>
+		<td>
+		<%=link_to usuario.username, :action => "editar_usuario", :id => usuario.id%>
+		</td>
+		<td>
+		<%=usuario.email%>
+		</td>
+		<td>
+			<% if can? :destroy, @articulo %>
+				<% if usuario != current_user%>
+					<%=link_to "Eliminar",admin_user_path(usuario.id),:confirm => "Esta seguro?",:method => :delete%>
+				<%end%>
+			<% end%>
+		</td>
+	</tr>
+	<% end %>
+</table>
+-->
+<div id="x-usuarios" class="grilla"></div>
+<script type="text/javascript" charset="utf-8">
+	Ext.onReady(function() {
+		var store = new Ext.data.JsonStore({
+				storeId: 'usuariosJson',
+				root: 'usuarios',
+				idProperty: 'id',
+				proxy: new Ext.data.HttpProxy({
+					url: '/admin/users.json'
+				}),
+				fields: [
+				{name: 'id', mapping: 'id'},
+				{name: 'username', mapping: 'username'},
+				{name: 'email', mapping:'email'},
+				{name: 'acciones'}
+				]
+			});
+		store.load();
+		
+		var acciones = {
+		   header: "Acciones",
+		   width: 80,
+		   renderer: function(value, metaData, record, rowIndex, colIndex, store) {
+		   	  var url = "<%= users_url %>"
+		      return '<a href="'+url+"/"+record.id+"/edit"+'" target="_blank">Editar</a>';
+		   }
+		}
+		var grid = new Ext.grid.GridPanel({
+			store: store,
+			colModel: new Ext.grid.ColumnModel({
+				defaults: {
+					width: 120,
+					sortable: true
+				},
+				columns: [
+					{id: 'id', header: 'Id', dataIndex:'id',width: 10},
+					{header: "Usuario",	dataIndex: "username"},
+					{header: "E-Mail",dataIndex: "email"},
+					acciones
+				]
+			}),
+			viewConfig: {
+				forceFit: true
+			},
+			sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
+			width: 600,
+			height: 300,
+			frame: true,
+			title: "usuarios",
+			renderTo: 'x-usuarios'		
+		})
+		
+	})
+</script>

@@ -1,0 +1,103 @@
+<div id="sidebar"> 
+	<ul>
+
+		<%=render :partial => "admin/parciales/menu", :locals =>
+		{
+		:ruta => "admin",
+		:controller => "admin_Principal",
+		:action => "index"
+		}
+		%>
+		<% if can? :read, Articulo %>
+			<%=render :partial => "admin/parciales/menu", :locals =>
+			{
+			:controller => "admin_Articulos",
+			:action => "index"
+			}
+			%>
+		<% end %>
+		
+		<% if can? :read, Tipo%>
+			<%=render :partial => "admin/parciales/menu", :locals =>
+			{
+			:controller => "admin_Tipos",
+			:action => "index"
+			}
+			%>
+		<% end%>
+		
+		<% if can? :read, Categoria%>
+			<%=render :partial => "admin/parciales/menu", :locals =>
+			{
+			:controller => "admin_Categorias",
+			:action => "index"
+			}
+			%>
+		
+		<% end%>
+		
+		<% if can? :read, Producto%>
+			<%=render :partial => "admin/parciales/menu", :locals =>
+			{
+			:controller => "admin_Productos",
+			:action => "index"
+			}
+			%>
+		
+		<% end%>
+		
+		<% if can? :manage, User %>
+			<%=render :partial => "admin/parciales/menu", :locals =>
+			{
+			:texto => "Usuarios",
+			:controller => "admin_Users",
+			:action => "index"
+			}
+			%>
+		<% end %>
+		
+		
+		<% if !current_user %>
+			<%= render :partial => "admin/parciales/menu", :locals => 
+			{
+			:texto => "Iniciar Sesion",
+			:ruta => "login",
+			:controller => "admin_user_sessions",
+			:action => "new"
+			}
+			%>
+			<%= render :partial => "admin/parciales/menu", :locals => 
+			{
+			:texto => "Registrarme",
+			:ruta => "new_admin_user",
+			:controller => "admin_users",
+			:action => "new"
+			}
+			%>
+		<% else%>
+		
+			<%= render :partial => "admin/parciales/menu", :locals => 
+			{
+			:texto => "Editar Perfil",
+			:ruta => "edit_user",
+			:current => true,
+			:controller => "admin_users",
+			:action => "edit"
+			}
+			%>
+			
+			<%= render :partial => "admin/parciales/menu", :locals => 
+			{
+			:texto => "Salir",
+			:ruta => "logout",
+			:controller => "admin_users",
+			:action => "destroy"
+			}
+			%>					    
+		
+		<% end %> 
+		
+	
+	</ul>
+
+</div>

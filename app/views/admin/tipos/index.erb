@@ -1,0 +1,54 @@
+<div id="x-tipos" class="grilla"></div>
+<script type="text/javascript" charset="utf-8">
+	Ext.onReady(function() {
+		var store = new Ext.data.JsonStore({
+				storeId: 'tiposJson',
+				root: 'tipos',
+				idProperty: 'id',
+				proxy: new Ext.data.HttpProxy({
+					url: '/tipos.json'
+				}),
+				fields: [
+				{name: 'id', mapping: 'id'},
+				{name: 'nombre', mapping: 'nombre'},
+				{name: 'acciones'}
+				]
+			});
+		store.load();
+		
+		var acciones = {
+		   header: "Acciones",
+		   width: 80,
+		   renderer: function(value, metaData, record, rowIndex, colIndex, store) {
+		      return '<a href="'+"<%= tipos_url %>"+"/"+record.id+"/edit"+'" target="_blank">Editar</a>';
+		   }
+		}
+		
+		
+		
+		var grid = new Ext.grid.GridPanel({
+			store: store,
+			colModel: new Ext.grid.ColumnModel({
+				defaults: {
+					width: 120,
+					sortable: true
+				},
+				columns: [
+					{id: 'id', header: 'Id', dataIndex:'id',width: 10},
+					{header: "Nombre",	dataIndex: "nombre"},
+					acciones
+				]
+			}),
+			viewConfig: {
+				forceFit: true
+			},
+			sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
+			width: 600,
+			height: 300,
+			frame: true,
+			title: "Tipos de productos",
+			renderTo: 'x-tipos'		
+		})
+		
+	})
+</script>

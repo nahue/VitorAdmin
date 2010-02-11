@@ -1,0 +1,59 @@
+<% form_for @producto, :url => {:controller => "admin/productos", :action => "update"}, :html => {:class => "productos", :multipart => true} do |f| %>  
+<%= f.error_messages %>  
+	<p>
+		<%= f.label :modelo, "Modelo" %>  
+   		<%= f.text_field :modelo, :class => "text" %>  
+	</p>
+	<p>
+		<%= f.label :precio, "Precio" %>  
+   		<%= f.text_field :precio, :class => "text" %>  
+	</p>
+	<p>
+		<%= f.label :categoria, "Categoria" %>  
+		<%= collection_select(:producto, :categoria_id, Categoria.all, :id, :nombre,{:prompt => "Seleccione categoria"})%>
+	</p>
+	<p>
+		<%= f.label :detalle, "Detalle" %>  
+		<%= f.text_area :detalle, :class => "mceEditor" %>  
+	</p>
+	<% if !@producto.imagen_file_name.nil? %>
+		<p>	
+		<%= image_tag @producto.imagen.url(:thumb) %>
+		</p>
+	<% end%>
+	<p>
+		
+		<%= f.label :imagen, "Imagen"%>
+		<%= f.file_field :imagen %>
+
+	</p>
+	<p>  
+	<input type="button" name="botonSubmit" value="Guardar" id="producto_submit"/>
+
+  </p>  
+<% end %>
+
+
+<% javascript_tag do %>
+	Ext.get("producto_submit").on('click',function(){
+       producto_imagen = Ext.getDom("producto_imagen").value
+       if ( producto_imagen != "<%=@producto.imagen_file_name%>") {
+            Ext.Msg.confirm( 'Confirmar','Esta sobreescribiendo una imagen, la anterior se eliminara. Esta Seguro?',function(btn){
+                if (btn=="yes"){
+                    Ext.getDom("edit_producto_<%= params[:id] %>").submit();
+
+                }
+                },this);
+        } else {
+
+            Ext.Msg.confirm( 'Confirmar','Esta Seguro?',function(btn){
+                if (btn=="yes"){
+                    Ext.getDom("edit_producto_<%= params[:id] %>").submit();
+
+                }
+                },this);
+
+        }
+	});
+	
+<% end %>

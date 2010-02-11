@@ -1,0 +1,33 @@
+<% form_for @producto, :html => {:class => "formulario", :multipart => true} do |f| %>  
+<%= f.error_messages %>  
+	<p>
+		<%= f.label :modelo, "Modelo" %>  
+   		<%= f.text_field :modelo, :class => "text" %>  
+	</p>
+	<p>
+		<%= f.label :precio, "Precio" %>  
+   		<%= f.text_field :precio, :class => "text" %>  
+	</p>
+	<p>
+		<%= f.label :categoria, "Categoria" %>  
+		<%= collection_select(:producto, :categoria_id, Categoria.all, :id, :nombre,{:prompt => "Seleccione categoria"})%>
+	</p>
+	<p>
+		<%= f.label :detalle, "Detalle" %>  
+		<%= f.text_area :detalle, :class => "mceEditor" %>  
+	</p>
+	<% if !@producto.imagen_file_name.nil? %>
+		<p>	
+		<%= image_tag @producto.imagen.url(:thumb) %>
+		</p>
+	<% end%>
+	<p>
+		
+		<%= f.label :imagen, "Imagen"%>
+		<%= f.file_field :imagen %>
+
+	</p>
+	<p>  
+    <%= f.submit "Guardar" %>  
+  </p>  
+<% end %>

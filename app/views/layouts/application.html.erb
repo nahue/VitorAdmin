@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<%=stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'%>
+		<%= stylesheet_link_tag 'compiled/print.css', :media => 'print'%>
+			<!--/[if IE]-->
+		<%=stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'%>
+
+		<%= include_tiny_mce_if_needed %>
+		
+		<%= stylesheet_link_tag "/javascripts/ext-3.1.0/resources/css/ext-all.css", :media => 'screen, projection' %> 
+		<%= javascript_include_tag "ext-3.1.0/adapter/ext/ext-base-debug", :cache => true%>
+		<%= javascript_include_tag "ext-3.1.0/ext-all-debug", :cache => true%>
+		<%= javascript_include_tag "ExtApp" %>
+		<%= javascript_include_tag "misExt" %>
+	</head>
+	
+	<body class="vd2">
+		<div id="container">
+			<div style="width:90%;clear:both;">
+				<div id="header"> 
+				
+
+				
+				<%= yield :header_html %> 
+				
+				</div>
+				
+				<%=render :partial => "parciales/sidebar"%>
+				<%=render :partial => "parciales/contenido"%>
+				
+				
+				<div id="footer"></div>
+			</div>
+		</div>
+	
+	</body>
+
+</html>

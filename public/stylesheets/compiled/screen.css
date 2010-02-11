@@ -1,0 +1,128 @@
+#errorExplanation { padding: .8em; margin-bottom: 1em; border: 2px solid #dddddd; background: #fbe3e4; color: #8a1f11; border-color: #fbc2c4; }
+#errorExplanation a { color: #8a1f11; }
+
+#notice { padding: .8em; margin-bottom: 1em; border: 2px solid #dddddd; background: #fff6bf; color: #514721; border-color: #ffd324; }
+#notice a { color: #514721; }
+
+#success { padding: .8em; margin-bottom: 1em; border: 2px solid #dddddd; background: #e6efc2; color: #264409; border-color: #c6d880; }
+#success a { color: #264409; }
+
+#menu.articulos { height: 20px; background-color: #CCC; -moz-border-radius-topleft: 6px; -moz-border-radius-topright: 6px; -webkit-border-top-left-radius: 6px; -webkit-border-top-right-radius: 6px; }
+
+#articulos.titulo { float: left; width: 120px; font-weight: bold; }
+
+#articulos.texto { display: block; margin-left: 160px; width: 70%; }
+
+#articulos.acciones { width: 20%; }
+
+html { background-color: #EFF1F1; }
+
+#sidebar, form { line-height: 1.5; font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333; font-size: 75%; }
+#sidebar h1, form h1 { font-weight: normal; color: #222222; font-size: 3em; line-height: 1; margin-bottom: 0.5em; }
+#sidebar h1 img, form h1 img { margin: 0; }
+#sidebar h2, form h2 { font-weight: normal; color: #222222; font-size: 2em; margin-bottom: 0.75em; }
+#sidebar h3, form h3 { font-weight: normal; color: #222222; font-size: 1.5em; line-height: 1; margin-bottom: 1em; }
+#sidebar h4, form h4 { font-weight: normal; color: #222222; font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
+#sidebar h5, form h5 { font-weight: normal; color: #222222; font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+#sidebar h6, form h6 { font-weight: normal; color: #222222; font-size: 1em; font-weight: bold; }
+#sidebar h2 img, #sidebar h3 img, #sidebar h4 img, #sidebar h5 img, #sidebar h6 img, form h2 img, form h3 img, form h4 img, form h5 img, form h6 img { margin: 0; }
+#sidebar p, form p { margin: 0 0 1.5em; }
+#sidebar p img.left, form p img.left { display: inline; float: left; margin: 1.5em 1.5em 1.5em 0; padding: 0; }
+#sidebar p img.right, form p img.right { display: inline; float: right; margin: 1.5em 0 1.5em 1.5em; padding: 0; }
+#sidebar a, form a { text-decoration: underline; color: #000099; }
+#sidebar a:visited, form a:visited { color: #000066; }
+#sidebar a:focus, form a:focus { color: black; }
+#sidebar a:hover, form a:hover { color: black; }
+#sidebar a:active, form a:active { color: #cc0099; }
+#sidebar blockquote, form blockquote { margin: 1.5em; color: #666; font-style: italic; }
+#sidebar strong, form strong { font-weight: bold; }
+#sidebar em, form em { font-style: italic; }
+#sidebar dfn, form dfn { font-style: italic; font-weight: bold; }
+#sidebar sup, #sidebar sub, form sup, form sub { line-height: 0; }
+#sidebar abbr, #sidebar acronym, form abbr, form acronym { border-bottom: 1px dotted #666; }
+#sidebar address, form address { margin: 0 0 1.5em; font-style: italic; }
+#sidebar del, form del { color: #666; }
+#sidebar pre, form pre { margin: 1.5em 0; white-space: pre; }
+#sidebar pre, #sidebar code, #sidebar tt, form pre, form code, form tt { font: 1em 'andale mono', 'lucida console', monospace; line-height: 1.5; }
+#sidebar li ul, #sidebar li ol, form li ul, form li ol { margin: 0 1.5em; }
+#sidebar ul, form ul { margin: 0 1.5em 1.5em 1.5em; list-style-type: disc; }
+#sidebar ol, form ol { margin: 0 1.5em 1.5em 1.5em; list-style-type: decimal; }
+#sidebar dl, form dl { margin: 0 0 1.5em 0; }
+#sidebar dl dt, form dl dt { font-weight: bold; }
+#sidebar dd, form dd { margin-left: 1.5em; }
+#sidebar table, form table { margin-bottom: 1.4em; width: 100%; }
+#sidebar th, form th { font-weight: bold; }
+#sidebar thead th, form thead th { background: #c3d9ff; }
+#sidebar th, #sidebar td, #sidebar caption, form th, form td, form caption { padding: 4px 10px 4px 5px; }
+#sidebar tr.even td, form tr.even td { background: #e5ecf9; }
+#sidebar tfoot, form tfoot { font-style: italic; }
+#sidebar caption, form caption { background: #eee; }
+#sidebar .quiet, form .quiet { color: #666666; }
+#sidebar .loud, form .loud { color: #111111; }
+
+.error { padding: .8em; margin-bottom: 1em; border: 2px solid #dddddd; background: #fbe3e4; color: #8a1f11; border-color: #fbc2c4; }
+.error a { color: #8a1f11; }
+
+.notice { padding: .8em; margin-bottom: 1em; border: 2px solid #dddddd; background: #fff6bf; color: #514721; border-color: #ffd324; }
+.notice a { color: #514721; }
+
+.success { padding: .8em; margin-bottom: 1em; border: 2px solid #dddddd; background: #e6efc2; color: #264409; border-color: #c6d880; }
+.success a { color: #264409; }
+
+.hide { display: none; }
+
+.highlight { background: yellow; }
+
+.added { background: #006600; color: white; }
+
+.removed { background: #990000; color: white; }
+
+label { font-weight: bold; }
+
+fieldset { padding: 1.4em; margin: 0 0 1.5em 0; }
+
+legend { font-weight: bold; font-size: 1.2em; }
+
+input.text, input.title, input[type=text] { margin: 0.5em 0; background-color: #fff; padding: 5px; }
+input.title { font-size: 1.5em; }
+input[type=checkbox], input.checkbox, input[type=radio], input.radio { position: relative; top: 0.25em; }
+
+textarea { margin: 0.5em 0; padding: 5px; }
+
+select { margin: 0.5em 0; }
+
+fieldset { border: 1px solid #cccccc; }
+
+input.text, input.title, textarea, select { border: 1px solid #bbbbbb; }
+input.text:focus, input.title:focus, textarea:focus, select:focus { border: 1px solid #666666; }
+
+input.text, input.title { width: 300px; }
+
+textarea { width: 390px; height: 250px; }
+
+body.vd2 #container { width: 950px; margin: 0 auto; overflow: hidden; display: inline-block; width: 90%; }
+body.vd2 #container { display: block; }
+body.vd2 #header, body.vd2 #footer { clear: both; }
+body.vd2 #sidebar { float: left; position: fixed; color: #444; margin-top: 80px; margin-left: 38px; margin-right: 0px; font-size: 11px; font-weight: normal; text-align: left; text-transform: lowercase; width: 180px; }
+body.vd2 #sidebar ul li { margin-left: 10px; list-style: none; }
+body.vd2 #sidebar ul li a { color: #909090; text-decoration: none; }
+body.vd2 #sidebar ul li a:hover { color: #444; }
+body.vd2 #sidebar ul li.seleccionado { -moz-border-radius: 6px; -webkit-border-radius: 6px; background-color: white; border: 1px solid #E1E4E4; font-weight: bold; margin: 0px; margin-top: 5px; margin-bottom: 5px; padding: 10px; border-style: solid none solid solid; -moz-border-radius-bottomright: 0px; -moz-border-radius-topright: 0px; -webkit-border-bottom-right-radius: 0px; -webkit-border-top-right-radius: 0px; }
+body.vd2 #sidebar ul li.seleccionado a { color: #444; }
+body.vd2 #content { min-height: 750px; margin-left: 201px; -moz-border-radius: 6px; -webkit-border-radius: 6px; background-color: white; border: 1px solid #E1E4E4; min-width: 400px; }
+
+.grilla { text-align: left; font-weight: normal; vertical-align: middle; width: 600px; margin: 0 auto; margin-top: 30px; }
+
+form.productos { width: 80%; margin: 0 auto; margin-top: 80px; }
+form.productos label { text-align: right; display: block; float: left; width: 140px; }
+form.productos input { display: block; margin-left: 150px; }
+form.productos input[type=text], form.productos input[type=password] { width: 200px; }
+form.productos select { width: 200px; display: block; margin-left: 150px; }
+
+form.login { width: 50%; margin: 0 auto; margin-top: 80px; }
+form.login label { text-align: right; display: block; float: left; width: 140px; }
+form.login input { display: block; margin-left: 150px; }
+form.login input[type=text], form.login input[type=password] { width: 200px; }
+form.login select { width: 200px; display: block; margin-left: 150px; }
+
+.mceEditor { display: block; margin-left: 150px; }

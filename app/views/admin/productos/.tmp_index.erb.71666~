@@ -1,0 +1,35 @@
+<div id="x-productos" class="grilla"></div>
+<script type="text/javascript" charset="utf-8">
+	Ext.ns("com.vd.productos");
+	
+	Ext.onReady(function() {
+		com.vd.productos.proxy = new Ext.data.HttpProxy({	url: '/productos' });
+		com.vd.productos.campos = new Ext.data.Record.create([
+				{name: 'id'},
+				{name: 'modelo'},
+				{name: 'detalle'}
+			]);
+		com.vd.productos.columnas = new Ext.grid.ColumnModel({
+				defaults: { 	width: 120, sortable: true },
+				columns: [
+					{id: 'id', header: 'Id', dataIndex:'id',width: 10},
+					{header: "Modelo",	dataIndex: "modelo"}
+				]
+		});
+		com.vd.productos.reader = new Ext.ux.JsonReader({ 	fields: com.vd.productos.campos 	});
+		com.vd.productos.writer = new Ext.data.JsonWriter();
+		com.vd.productos.store = new Ext.data.Store({
+				id			: 'productosStore',
+				restful	: true,
+				proxy	: com.vd.productos.proxy,
+				reader	: com.vd.productos.reader,
+				writer	: com.vd.productos.writer
+			});
+		com.vd.productos.store.load();
+
+		com.vd.productos.panel = new Ext.ux.PanelProductos({
+			modeloUrl: "<%= productos_url %>"
+		});
+
+	});
+</script>

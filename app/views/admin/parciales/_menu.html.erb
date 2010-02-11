@@ -1,0 +1,24 @@
+<% 
+  nombre_controlador = @controller.controller_name.to_s
+  nombre_accion = @controller.action_name.to_s
+
+
+  if nombre_controlador.include?(controller.downcase) and nombre_accion.include?(action.downcase)%>
+
+<li class="seleccionado">
+<%else%>
+<li>
+<%end%>
+<%=controller%>
+<% texto = controller.split("_")[1] if texto.nil?
+   ruta = controller.downcase if ruta.nil?
+%>
+<%= 
+	current ||= nil
+	if current
+		link_to texto, edit_admin_user_path(:current)
+	else
+		link_to texto, ruta.to_sym 
+	end
+	%>  
+</li>

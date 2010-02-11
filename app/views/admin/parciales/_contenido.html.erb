@@ -1,0 +1,10 @@
+<div id="content"> 
+
+	<% [:error, :warning, :notice, :message, :success].each do |key| %>
+		<%= content_tag :div, flash.now[key], :id => key if flash.now[key] %>
+	<% end %>
+	
+	
+	
+	<%=yield%>
+</div>

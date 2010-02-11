@@ -1,0 +1,126 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import compass/utilities/general/reset.sass
+// To configure blueprint, edit the partials/base.sass file.
+
+@import blueprint
+@import partials/base.sass
+@import partials/notificaciones.sass
+@import partials/articulos.sass
+@import partials/usuarios.sass
+// Import all the default blueprint modules so that we can access their mixins.
+
+// Import the non-default scaffolding module.
+@import blueprint/modules/scaffolding.sass
+// To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
+
+
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+html
+  :background-color #EFF1F1
+ 
+//+blueprint
+//Recommended Blueprint configuration with scoping and semantic layout:
++blueprint-typography("#sidebar,form")
+
++blueprint-interaction
++blueprint-form 
+
+body.vd2
+
+  #container
+    +container
+    :width 90%
+
+  #header, #footer
+    :clear both
+    //+column(!blueprint_grid_columns)
+  #sidebar
+    :float left
+    :position fixed
+    :color #444
+    :margin
+      :top 80px
+      :left 38px
+      :right 0px
+
+    :font
+      :size 11px
+      :weight normal
+    :text
+      :align left
+      :transform lowercase
+    :width 180px
+    ul
+      li
+        :margin
+          :left 10px
+
+        a
+          :color #909090
+          :text-decoration none
+        a:hover
+          :color #444
+        :list
+          :style none
+      li.seleccionado
+        a
+          :color #444
+        +caja
+        :font
+          :weight bold
+        :margin 0px
+          :top 5px
+          :bottom 5px
+        :padding 10px
+        :border-style solid none solid solid
+        -moz-border-radius-bottomright: 0px
+        -moz-border-radius-topright: 0px
+        -webkit-border-bottom-right-radius: 0px
+        -webkit-border-top-right-radius: 0px
+  #content
+    :min-height 750px
+    :margin-left 201px
+    +caja
+    :min-width 400px
+    // Two thirds of the grid columns, rounding up.
+    // With 24 cols, this is 16.
+    //!content_columns = ceil(2 * !blueprint_grid_columns / 3)
+    // true means it's the last column in the row
+    //+column(!content_columns, true)
+
+
+.grilla
+  +reset-table-cell
+  :width 600px
+  :margin 0 auto
+    :top 30px
+    
+=formularios
+  :margin 0 auto
+    :top 80px
+  label  
+    :text-align right
+    :display block
+    :float left
+    :width 140px
+  input
+    :display block
+    :margin-left 150px
+    &[type=text], &[type=password]
+      :width 200px
+  select
+    :width 200px
+    :display block
+    :margin-left 150px
+
+    
+form.productos
+  :width 80%
+  +formularios
+form.login
+  :width 50%
+  +formularios
+
+.mceEditor
+  :display block
+  :margin-left 150px

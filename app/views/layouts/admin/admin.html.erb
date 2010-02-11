@@ -1,0 +1,125 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<%=stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'%>
+		<%= stylesheet_link_tag 'compiled/print.css', :media => 'print'%>
+			<!--/[if IE]-->
+		<%=stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'%>
+
+		<%= include_tiny_mce_if_needed %>
+		
+		<%= stylesheet_link_tag "/javascripts/ext-3.1.0/resources/css/ext-all.css", :media => 'screen, projection' %>
+		<%= stylesheet_link_tag "xtheme-gray-extend" %>
+
+		<%= javascript_include_tag "ext-3.1.0/adapter/ext/ext-base-debug", :cache => true%>
+		<%= javascript_include_tag "ext-3.1.0/ext-all-debug", :cache => true%>
+		<%= javascript_include_tag "ExtApp" %>
+		<%= javascript_include_tag "misExt" %>
+		<% if current_user %>
+		<% javascript_tag do %>
+			Ext.ns('com.vd2.general');
+			Ext.onReady(function(){
+				com.vd2.general.menuPrincipal = new Ext.menu.Menu({
+					id			: 'menuPrincipal',
+					items	: [{
+						text	: 'Principal'	
+					}]
+				});
+				com.vd2.general.modulos = new Ext.menu.Menu({
+					id			: 'menuModulos',
+					items	: [{
+							text		: 'Productos',
+							<% if cannot? :manage, Producto%>
+								disabled: true,
+							<% end %>
+							handler	: function(){
+							location.href = "<%= admin_productos_path %>"
+							}
+						},
+						{
+								text	: "Categorias",
+								<% if cannot? :manage, Categoria%>
+									disabled: true,
+								<% end %>
+								handler : function(){
+									location.href = "<%= admin_categorias_path %>"
+								}
+							}]
+						
+				});
+				com.vd2.general.menuSesion = new Ext.menu.Menu({
+					id			: 'menuSesion',
+					<% if !current_user %>
+					items	: [{
+						text		: 'Iniciar Sesion',
+						handler	: function(){
+							location.href		= "<%= login_path %>"
+						}	
+					},{
+						text		: 'Registrarme'
+					}]
+					<% else %> 
+					items	: [{
+						text		: 'Editar Perfil',
+						handler	: function(){
+							location.href = "<%=edit_admin_user_path(current_user) %>"
+						}
+					},{
+						text		: 'Cerrar Sesion',
+						handler : function(){
+							location.href = "<%=logout_path %>"
+						}
+					}]
+					<% end %>
+				});
+				com.vd2.general.BarraMenu = new Ext.ux.MenuSitio({
+					items	: [{
+							text		: 'Principal',
+							menu	: com.vd2.general.menuPrincipal
+						},{
+							text		: 'Modulos',
+							menu	: com.vd2.general.modulos
+						},'->', 
+						<% if current_user %>
+							'Usuario: <b><%= current_user.username %></b>','-',
+						<% end %>
+						
+						{
+							text		: 'Sesion',
+							menu	: com.vd2.general.menuSesion
+						}]
+					
+				});
+			});
+		<% end %>
+		
+		<% end %>
+	</head>
+	
+	<body class="vd2">
+		<div id="header"> 
+				
+
+				
+				<%= yield :header_html %> 
+				<div id="menu"></div>
+					
+		</div>
+		<div id="container">
+			<div style="width:90%;clear:both;">
+				
+				
+				
+				<%=render :partial => "admin/parciales/contenido"%>
+				
+
+				<div id="footer"></div>
+			</div>
+		</div>
+	
+	</body>
+
+</html>
