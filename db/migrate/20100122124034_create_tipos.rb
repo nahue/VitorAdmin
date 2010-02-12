@@ -5,6 +5,8 @@ class CreateTipos < ActiveRecord::Migration
 
       t.timestamps
     end
+    Tipo.create :nombre => "Venta"
+    Tipo.create :nombre => "Alquiler"
   end
 
   def self.down

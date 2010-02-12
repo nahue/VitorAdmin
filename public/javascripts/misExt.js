@@ -152,7 +152,7 @@ Ext.ux.PanelProductos = Ext.extend(Ext.Panel,{
 			tbar	: new Ext.ux.HerramientasGrid({ 
 				border		: false,
 				frame		: false,
-				modeloUrl	: this.modeloUrl ,
+				modeloUrl	: this.modeloUrl
 				
 			}),
 			fbar	: new Ext.ux.ToolbarPaginacion({
@@ -198,6 +198,10 @@ Ext.ux.PanelProductos = Ext.extend(Ext.Panel,{
 	}
 });
 
+
+/* ################### PANEL DE CATEGORIAS  ###############*/
+
+
 Ext.ux.PanelCategorias = Ext.extend(Ext.Panel,{
 	
 	initComponent: function(){
@@ -215,6 +219,11 @@ Ext.ux.PanelCategorias = Ext.extend(Ext.Panel,{
 					{id: 'id', header: 'Id', dataIndex:'id',width: 10},
 					{header: "Nombre", dataIndex: "nombre"}
 				]
+			}),
+            tbar	: new Ext.ux.HerramientasGrid({
+				border		: false,
+				frame		: false,
+				modeloUrl	: this.modeloUrl
 			})
 		});
 		

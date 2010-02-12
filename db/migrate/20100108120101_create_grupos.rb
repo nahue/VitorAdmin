@@ -5,6 +5,7 @@ class CreateGrupos < ActiveRecord::Migration
 
       t.timestamps
     end
+    Grupo.create(:nombre => "Administradores")
   end
 
   def self.down

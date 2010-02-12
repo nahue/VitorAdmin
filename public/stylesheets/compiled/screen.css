@@ -113,13 +113,13 @@ body.vd2 #content { min-height: 750px; margin-left: 201px; -moz-border-radius: 6
 
 .grilla { text-align: left; font-weight: normal; vertical-align: middle; width: 600px; margin: 0 auto; margin-top: 30px; }
 
-form.productos { width: 80%; margin: 0 auto; margin-top: 80px; }
+form.productos { width: 80%; margin: 0 auto; margin-top: 50px; }
 form.productos label { text-align: right; display: block; float: left; width: 140px; }
 form.productos input { display: block; margin-left: 150px; }
 form.productos input[type=text], form.productos input[type=password] { width: 200px; }
 form.productos select { width: 200px; display: block; margin-left: 150px; }
 
-form.login { width: 50%; margin: 0 auto; margin-top: 80px; }
+form.login { width: 50%; margin: 0 auto; margin-top: 50px; }
 form.login label { text-align: right; display: block; float: left; width: 140px; }
 form.login input { display: block; margin-left: 150px; }
 form.login input[type=text], form.login input[type=password] { width: 200px; }

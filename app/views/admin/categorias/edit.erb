@@ -1,1 +1,11 @@
-<%=render @categoria%>
+<% form_for @categoria, :url => {:controller => "admin/categorias", :action => "update"} do |f| %>
+<%= f.error_messages %>
+<p>
+	<%= f.label :nombre, "Nombre"%>
+	<%= f.text_field :nombre %>
+</p>
+<p>
+  <%= f.submit "Guardar" %>
+</p>
+
+<% end %>

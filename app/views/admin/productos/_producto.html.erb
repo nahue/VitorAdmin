@@ -1,5 +1,11 @@
-<% form_for @producto, :html => {:class => "formulario", :multipart => true} do |f| %>  
-<%= f.error_messages %>  
+<% form_for @producto, :url => admin_productos_path, :html => {:class => "productos", :multipart => true} do |f| %>  
+<%= f.error_messages :header_message => "Producto invalido!",
+:message => "Corrija los siguientes campos:", :header_tag => :h3
+%>
+    <p>
+		<%= f.label :operacion, "Operacion" %>
+		<%= collection_select(:producto, :operacion_id, Operacion.all, :id, :tipo,{:prompt => "Seleccione operacion"})%>
+	</p>
 	<p>
 		<%= f.label :modelo, "Modelo" %>  
    		<%= f.text_field :modelo, :class => "text" %>  

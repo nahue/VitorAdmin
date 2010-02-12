@@ -6,6 +6,8 @@ class CreateProductos < ActiveRecord::Migration
 		t.integer :precio
 		t.string :imagen
 		t.integer :borrado
+        t.references :categoria
+        t.references :operacion
       t.timestamps
     end
   end

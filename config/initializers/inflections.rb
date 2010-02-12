@@ -19,4 +19,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'clave', 'claves'
   inflect.irregular 'sesion', 'sesiones'
   inflect.irregular 'session', 'sessions'
+  inflect.irregular 'operacion', 'operaciones'
 end

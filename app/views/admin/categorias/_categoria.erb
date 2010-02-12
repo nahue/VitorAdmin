@@ -1,5 +1,5 @@
-<% form_for @categoria do |f| %>  
-
+<% form_for @categoria, :url => admin_categorias_path do |f| %>  
+<%= f.error_messages %> 
 <p>
 	<%= f.label :nombre, "Nombre"%>
 	<%= f.text_field :nombre %>

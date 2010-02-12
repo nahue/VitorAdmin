@@ -1,4 +1,4 @@
 class Categoria < ActiveRecord::Base
 	has_many :productos
-	has_and_belongs_to_many :tipos
+    validates_uniqueness_of :nombre, :message => "No pueden existir dos categorias con el mismo nombre."
 end

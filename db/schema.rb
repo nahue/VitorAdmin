@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100201013623) do
+ActiveRecord::Schema.define(:version => 20100212232032) do
 
   create_table "articulos", :force => true do |t|
     t.text     "texto"
@@ -26,11 +26,6 @@ ActiveRecord::Schema.define(:version => 20100201013623) do
     t.datetime "updated_at"
   end
 
-  create_table "categorias_tipos", :id => false, :force => true do |t|
-    t.integer "categoria_id", :null => false
-    t.integer "tipo_id",      :null => false
-  end
-
   create_table "grupos", :force => true do |t|
     t.string   "nombre"
     t.datetime "created_at"
@@ -42,6 +37,12 @@ ActiveRecord::Schema.define(:version => 20100201013623) do
     t.integer "grupo_id"
   end
 
+  create_table "operaciones", :force => true do |t|
+    t.string   "tipo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "productos", :force => true do |t|
     t.string   "modelo"
     t.text     "detalle"
@@ -50,11 +51,11 @@ ActiveRecord::Schema.define(:version => 20100201013623) do
     t.integer  "borrado"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "categoria_id",        :null => false
     t.string   "imagen_file_name"
     t.string   "imagen_content_type"
     t.integer  "imagen_file_size"
     t.datetime "imagen_updated_at"
+    t.integer  "categoria_id",        :null => false
   end
 
   create_table "tipos", :force => true do |t|

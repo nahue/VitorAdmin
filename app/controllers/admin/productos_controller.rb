@@ -43,7 +43,7 @@ class Admin::ProductosController < Admin::AdminController
 	  		flash[:notice] = "Producto guardado correctamente."
 	  		redirect_to admin_productos_url
 	  	else
-	  		flash[:notice] = "Ocurrio un error."
+	  		##flash[:notice] = "Ocurrio un error."
 	  		render :action => 'new'  
 	  	end
 	end
