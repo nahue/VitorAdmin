@@ -25,7 +25,10 @@
 				com.vd2.general.menuPrincipal = new Ext.menu.Menu({
 					id			: 'menuPrincipal',
 					items	: [{
-						text	: 'Principal'	
+						text	: 'Principal',
+                        handler : function(){
+                            location.href = "<%= admin_path %>"
+                        }
 					}]
 				});
 				com.vd2.general.modulos = new Ext.menu.Menu({
